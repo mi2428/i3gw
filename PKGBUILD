@@ -30,12 +30,7 @@ build() {
 	make
 }
 
-check() {
-	cd "$srcdir/${pkgname}"
-	make -k check
-}
-
 package() {
 	cd "$srcdir/${pkgname}"
-	make DESTDIR="$pkgdir/" install
+    make install
 }
