@@ -14,7 +14,7 @@
 *.sig
 
 pkg/
-src/
+# src/
 
 ### Autotools ###
 # http://www.gnu.org/software/automake
