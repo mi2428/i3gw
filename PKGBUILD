@@ -20,23 +20,22 @@ noextract=()
 md5sums=('SKIP')
 
 pkgver() {
-	cd "$srcdir/${pkgname%-VCS}"
+	cd "$srcdir/${pkgname}"
 	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-	cd "$srcdir/${pkgname%-VCS}"
-	./autogen.sh
+	cd "$srcdir/${pkgname}"
 	./configure --prefix=/usr
 	make
 }
 
 check() {
-	cd "$srcdir/${pkgname%-VCS}"
+	cd "$srcdir/${pkgname}"
 	make -k check
 }
 
 package() {
-	cd "$srcdir/${pkgname%-VCS}"
+	cd "$srcdir/${pkgname}"
 	make DESTDIR="$pkgdir/" install
 }
